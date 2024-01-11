@@ -1,5 +1,34 @@
-<section class="container mt-4">
-  <article>
-    
+<section class="p-4 flex-grow-1">
+  <article
+    class="post d-flex flex-column gap-2 rounded-2 overflow-hidden bg-white col-12 col-md-6 col-lg-3"
+  >
+    <div
+      class="user-section d-flex gap-3 align-items-center border-bottom pb-2"
+    >
+      <div class="avatar border border-1">
+        <img class="img-fluid" src="https://picsum.photos/200/200" />
+      </div>
+      <div class="info">
+        <h6 class="m-0">Mahmoud Meky</h6>
+        <span class="text-muted small">mahmoudmeky2017@gmail.com</span>
+      </div>
+    </div>
+
+    <div class="ms-2">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime hic
+      consequuntur unde itaque fugiat eveniet nemo soluta aspernatur. Culpa,
+      asperiores distinctio deserunt soluta amet impedit. Asperiores recusandae
+      debitis suscipit repellat.
+    </div>
+    <div>
+      <img src="https://picsum.photos/1200/600" class="post-image" />
+    </div>
+    <div class="footer d-flex align-items-center">
+      <button class="btn text-danger text-start px-1">Show Comments</button>
+      <span class="ms-auto text-muted small">12 Comments</span>
+    </div>
+    <div class="ms-2 pt-2 border-top">
+        <app-comment></app-comment>
+    </div>
   </article>
 </section>
