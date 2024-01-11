@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PostComponent } from './Components/post/post.component';
-import { HomeComponent } from './Components/home/home.component';
+import { HomeComponent } from './Pages/home/home.component';
+import { UserPageComponent } from './Pages/user-page/user-page.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'user/:id', component: PostComponent },
+  { path: 'user/:id', component: UserPageComponent },
   { path: '**', redirectTo: 'home' },
 ];
 

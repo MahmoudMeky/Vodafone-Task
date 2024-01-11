@@ -6,8 +6,9 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { PostComponent } from './Components/post/post.component';
 import { MainLayoutComponent } from './Layouts/main-layout/main-layout.component';
-import { HomeComponent } from './Components/home/home.component';
+import { HomeComponent } from './Pages/home/home.component';
 import { CommentComponent } from './Components/comment/comment.component';
+import { UserPageComponent } from './Pages/user-page/user-page.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CommentComponent } from './Components/comment/comment.component';
     PostComponent,
     MainLayoutComponent,
     HomeComponent,
-    CommentComponent
+    CommentComponent,
+    UserPageComponent
   ],
   imports: [
     BrowserModule,

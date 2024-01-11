@@ -1,0 +1,25 @@
+.user-avatar {
+  width: 45px;
+  height: 45px;
+  background-color: #eee;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.comment {
+  // background-color: bisque;
+  flex: 1;
+  // width: 120px;
+  min-width: 80%;
+}
+
+.comment-box {
+  animation: fadeIn 0.5s ease-in-out; // Adjust the duration and timing function as needed
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
