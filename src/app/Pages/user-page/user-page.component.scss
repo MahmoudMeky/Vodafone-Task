@@ -1,5 +1,18 @@
 .posts {
-  display: grid;
-//   grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-//   gap: 10px; /* Adjust the gap between columns as needed */
+  //   display: grid;
+  //   grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  //   gap: 10px; /* Adjust the gap between columns as needed */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  .post {
+    width: 100%;
+    @media (min-width: 768px) {
+      width: calc(50% - 20px);
+    }
+    @media (min-width: 1024px) {
+      width: calc((100% / 3) - 20px);
+    }
+  }
 }

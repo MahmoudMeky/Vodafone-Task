@@ -6,7 +6,8 @@
   -ms-transition: 0.3s;
   -o-transition: 0.3s;
   padding: 1rem;
-  //   width: 400px;
+  animation: fadeUp 0.5s ease-in-out;
+
   &:hover {
     box-shadow: 10px 10px 15px #ccc;
   }
@@ -20,7 +21,7 @@
     }
     .info {
       overflow-wrap: anywhere;
-        // flex: 1;
+      // flex: 1;
       // background-color: red;
     }
   }
@@ -28,8 +29,23 @@
   .post-image {
     // background-color: red;
     border-radius: 10px;
-    height: 240px;
     width: 100%;
     object-fit: cover;
+    height: 140px;
+
+    @media (min-width: 768px) {
+      height: 340px;
+    }
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

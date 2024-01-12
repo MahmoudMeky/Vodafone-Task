@@ -1,40 +1,38 @@
-<section class="p-4 flex-grow-1 w-100">
-  <article
-    class="post d-flex flex-column gap-2 rounded-2 overflow-hidden bg-white"
+<article
+  class="post d-flex flex-column gap-2 rounded-2 overflow-hidden bg-white w-100"
+>
+  <div
+    class="user-section d-flex gap-3 align-items-center border-bottom pb-2 flex-wrap"
   >
-    <div
-      class="user-section d-flex gap-3 align-items-center border-bottom pb-2 flex-wrap"
-    >
-      <div class="avatar border border-1">
-        <img class="img-fluid" src="https://picsum.photos/200/200" />
-      </div>
-      <div class="info">
-        <h6 class="m-0">Mahmoud Meky</h6>
-        <span class="text-muted small">mahmoudmeky2017@gmail.com</span>
-      </div>
+    <div class="avatar border border-1">
+      <img class="img-fluid" src="https://picsum.photos/200/200" />
     </div>
+    <div class="info">
+      <h6 class="m-0">Mahmoud Meky</h6>
+      <span class="text-muted small">mahmoudmeky2017@gmail.com</span>
+    </div>
+  </div>
 
-    <div class="">
-      {{
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime hic consequuntur unde itaque fugiat eveniet nemo soluta aspernatur. Culpa,asperiores distinctio deserunt soluta amet impedit. Asperiores recusandae debitis suscipit repellat."
-          | slice : 0 : 60
-      }}
-    </div>
-    <div>
-      <img src="https://picsum.photos/1200/600" class="post-image" />
-    </div>
-    <div
-      class="footer d-flex align-items-center flex-wrap justify-content-center justify-content-sm-between gap-0 ga-md-2"
-    >
-      <span class="text-muted small">12 Comments</span>
-      <button class="btn text-danger text-start px-1" (click)="showComments()">
-        {{ isCommentsHidden ? "Show Comments" : "Hide Comments" }}
-      </button>
-    </div>
-    <div *ngIf="!isCommentsHidden">
-      <app-comment></app-comment>
-      <app-comment></app-comment>
-      <app-comment></app-comment>
-    </div>
-  </article>
-</section>
+  <div class="">
+    {{
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime hic consequuntur unde itaque fugiat eveniet nemo soluta aspernatur. Culpa,asperiores distinctio deserunt soluta amet impedit. Asperiores recusandae debitis suscipit repellat."
+        | slice : 0 : 60
+    }}
+  </div>
+  <div>
+    <img src="https://picsum.photos/1200/600" class="post-image" />
+  </div>
+  <div
+    class="footer d-flex align-items-center flex-wrap justify-content-center justify-content-sm-between gap-0 ga-md-2"
+  >
+    <span class="text-muted small">12 Comments</span>
+    <button class="btn text-danger text-start px-1" (click)="showComments()">
+      {{ isCommentsHidden ? "Show Comments" : "Hide Comments" }}
+    </button>
+  </div>
+  <div *ngIf="!isCommentsHidden">
+    <app-comment></app-comment>
+    <app-comment></app-comment>
+    <app-comment></app-comment>
+  </div>
+</article>
