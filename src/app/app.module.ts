@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,9 @@ import { MainLayoutComponent } from './Layouts/main-layout/main-layout.component
 import { HomeComponent } from './Pages/home/home.component';
 import { CommentComponent } from './Components/comment/comment.component';
 import { UserPageComponent } from './Pages/user-page/user-page.component';
+import { UserService } from './Services/user.service';
+import { CommentService } from './Services/comment.service';
+import { PostService } from './Services/post.service';
 
 @NgModule({
   declarations: [
@@ -18,13 +22,10 @@ import { UserPageComponent } from './Pages/user-page/user-page.component';
     MainLayoutComponent,
     HomeComponent,
     CommentComponent,
-    UserPageComponent
+    UserPageComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  providers: [UserService, PostService, CommentService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

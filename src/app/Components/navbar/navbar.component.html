@@ -24,16 +24,13 @@
             >Home</a
           >
         </li>
-        <li
-          class="nav-item"
-          *ngFor="let item of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
-        >
+        <li class="nav-item" *ngFor="let user of users">
           <a
             class="nav-link"
             aria-current="page"
-            routerLink="/user/{{ item }}"
+            routerLink="/user/{{ user.id }}"
             routerLinkActive="active"
-            >Username {{ item }}</a
+            >{{ user.username }}</a
           >
         </li>
       </ul>

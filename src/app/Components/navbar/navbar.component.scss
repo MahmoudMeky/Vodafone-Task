@@ -1,0 +1,19 @@
+.nav-item {
+  animation: zoomIn 1s;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.zoomIn {
+  animation: zoomIn 1s;
+  /* Adjust the duration and other properties as needed */
+}
