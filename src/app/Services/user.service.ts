@@ -17,7 +17,6 @@ export class UserService {
   private Users = new BehaviorSubject<User[]>([]);
   Users$: Observable<User[]> = this.Users.asObservable();
   constructor(private httpClient: HttpClient) {}
-  users: User[] = [];
   getAll(): Observable<User[]> {
     return this.httpClient.get<User[]>(`${environment.apiUrl}/users`).pipe(
       retry(3),
@@ -30,11 +29,5 @@ export class UserService {
 
   setUsers(users: User[]): void {
     this.Users.next(users);
-    this.users = users;
   }
-  // getActiveUserDetails(userId: number): void {
-  //   this.Users$.subscribe((users) => {
-  //     return users.find((user) => user.id == userId);
-  //   });
-  // }
 }

@@ -25,15 +25,17 @@ export class UserPageComponent implements OnInit {
 
   ngOnInit(): void {
     let routerSub = this.activatedRoute.params.subscribe(({ userId }) => {
-      let getUserPosts = this.postService
+      let getUserDetailsSub = this.userService.Users$.subscribe((users) => {
+        this.userDetails = users.find((user) => user.id == userId);
+      });
+      this.subs.push(getUserDetailsSub);
+
+      let getUserPostsSub = this.postService
         .getUserPosts(userId)
         .subscribe((data) => {
           this.posts = data;
-          this.userDetails = this.userService.users.find(
-            (user) => user.id == userId
-          );
         });
-      this.subs.push(getUserPosts);
+      this.subs.push(getUserPostsSub);
     });
     this.subs.push(routerSub);
   }
