@@ -14,10 +14,10 @@
   </div>
 
   <div class="">
-    {{
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime hic consequuntur unde itaque fugiat eveniet nemo soluta aspernatur. Culpa,asperiores distinctio deserunt soluta amet impedit. Asperiores recusandae debitis suscipit repellat."
-        | slice : 0 : 60
-    }}
+    <h6 class="text-primary m-0">{{ postInformation.title }}</h6>
+    <p class="m-0">
+      {{ postInformation.body | slice : 0 : 100 }}
+    </p>
   </div>
   <div>
     <img
@@ -29,14 +29,15 @@
   <div
     class="footer d-flex align-items-center flex-wrap justify-content-center justify-content-sm-between gap-0 ga-md-2"
   >
-    <span class="text-muted small">12 Comments</span>
+    <!-- <span class="text-muted small">12 Comments</span> -->
     <button class="btn text-danger text-start px-1" (click)="showComments()">
-      {{ isCommentsHidden ? "Show Comments" : "Hide Comments" }}
+      {{ areCommentsHidden ? "Show Comments" : "Hide Comments" }}
     </button>
   </div>
-  <div *ngIf="!isCommentsHidden">
-    <app-comment></app-comment>
-    <app-comment></app-comment>
-    <app-comment></app-comment>
+  <div *ngIf="!areCommentsHidden">
+    <app-comment
+      *ngFor="let comment of comments"
+      [commentDetails]="comment"
+    ></app-comment>
   </div>
 </article>

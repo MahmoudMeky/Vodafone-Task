@@ -1,12 +1,15 @@
 <section class="comment-box d-flex gap-2 border-top py-2">
   <div class="user-avatar">
-    <img src="https://picsum.photos/200/200" class="img-fluid"  loading="lazy" />
+    <img
+      src="assets/images/svg/comment-1.svg"
+      class="img-fluid"
+      loading="lazy"
+    />
   </div>
   <div class="comment">
-    <h6 class="small m-0">User Name</h6>
+    <h6 class="small m-0">{{ commentDetails.name }}</h6>
     <p class="small text-muted m-0">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates soluta
-      excepturi aperiam praesentium.
+      {{ commentDetails.body }}
     </p>
   </div>
 </section>
