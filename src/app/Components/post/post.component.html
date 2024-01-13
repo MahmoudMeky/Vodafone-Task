@@ -34,10 +34,24 @@
       {{ areCommentsHidden ? "Show Comments" : "Hide Comments" }}
     </button>
   </div>
+
   <div *ngIf="!areCommentsHidden">
-    <app-comment
-      *ngFor="let comment of comments"
-      [commentDetails]="comment"
-    ></app-comment>
+    <div
+      class="w-100 d-flex justify-content-center align-items-center gap-2 mb-3"
+      *ngIf="areCommentsLoading; else commentsTemplate"
+    >
+      <div
+        *ngFor="let item of [1, 2, 3]"
+        class="spinner-grow spinner-grow-sm"
+        role="status"
+      ></div>
+    </div>
+    
+    <ng-template #commentsTemplate>
+      <app-comment
+        *ngFor="let comment of comments"
+        [commentDetails]="comment"
+      ></app-comment>
+    </ng-template>
   </div>
 </article>

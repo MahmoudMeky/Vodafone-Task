@@ -17,18 +17,20 @@ export class PostComponent implements OnInit {
 
   comments: PostComment[] | null;
   subs: Subscription[] = [];
-
+  areCommentsLoading: boolean = false;
   constructor(private commentService: CommentService) {
     this.comments = null;
   }
 
   ngOnInit(): void {}
   showComments(): void {
+    this.areCommentsLoading = true;
     this.areCommentsHidden = !this.areCommentsHidden;
     let getCommentsSub = this.commentService
       .getPostComments(this.postInformation.id)
       .subscribe((data) => {
         this.comments = data;
+        this.areCommentsLoading = false;
       });
     this.subs.push(getCommentsSub);
   }
