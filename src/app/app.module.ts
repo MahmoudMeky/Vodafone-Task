@@ -15,6 +15,7 @@ import { CommentService } from './Services/comment.service';
 import { PostService } from './Services/post.service';
 import { LoadingComponent } from './Components/Shared/UI/loading/loading.component';
 import { ApiCacheInterceptor } from './Interceptors/api-cache.interceptor';
+import { HttpErrorInterceptor } from './Interceptors/http-error.interceptor';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,11 @@ import { ApiCacheInterceptor } from './Interceptors/api-cache.interceptor';
     UserService,
     PostService,
     CommentService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
+      multi: true,
+    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ApiCacheInterceptor,

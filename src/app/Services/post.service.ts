@@ -11,14 +11,8 @@ export class PostService {
   constructor(private httpClient: HttpClient) {}
 
   getUserPosts(userId: number): Observable<Post[]> {
-    return this.httpClient
-      .get<Post[]>(`${environment.apiUrl}/posts?userId=${userId}`)
-      .pipe(
-        retry(3),
-        catchError((err) => {
-          alert('Error Occured!');
-          return throwError(() => new Error(err));
-        })
-      );
+    return this.httpClient.get<Post[]>(
+      `${environment.apiUrl}/posts?userId=${userId}`
+    );
   }
 }

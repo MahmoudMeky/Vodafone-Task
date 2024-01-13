@@ -6,7 +6,7 @@ import {
   HttpInterceptor,
   HttpResponse,
 } from '@angular/common/http';
-import { Observable, of, tap } from 'rxjs';
+import { Observable, catchError, of, retry, tap, throwError } from 'rxjs';
 
 @Injectable()
 export class ApiCacheInterceptor implements HttpInterceptor {

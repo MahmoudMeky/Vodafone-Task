@@ -11,14 +11,8 @@ export class CommentService {
   constructor(private httpClient: HttpClient) {}
 
   getPostComments(postId: number): Observable<PostComment[]> {
-    return this.httpClient
-      .get<PostComment[]>(`${environment.apiUrl}/comments?postId=${postId}`)
-      .pipe(
-        retry(3),
-        catchError((err) => {
-          alert('Error Occured!');
-          return throwError(() => new Error(err));
-        })
-      );
+    return this.httpClient.get<PostComment[]>(
+      `${environment.apiUrl}/comments?postId=${postId}`
+    );
   }
 }
