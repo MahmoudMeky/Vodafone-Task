@@ -3,6 +3,8 @@ import { PostService } from './../../Services/post.service';
 import { ActivatedRoute } from '@angular/router';
 import { Post } from 'src/app/Interfaces/post';
 import { Subscription } from 'rxjs';
+import { UserService } from 'src/app/Services/user.service';
+import { User } from 'src/app/Interfaces/user';
 
 @Component({
   selector: 'app-user-page',
@@ -12,19 +14,25 @@ import { Subscription } from 'rxjs';
 export class UserPageComponent implements OnInit {
   posts: Post[];
   subs: Subscription[] = [];
-
+  userDetails: User | undefined;
   constructor(
     private activatedRoute: ActivatedRoute,
-    private postService: PostService
+    private postService: PostService,
+    private userService: UserService
   ) {
     this.posts = [];
   }
 
   ngOnInit(): void {
-    let routerSub = this.activatedRoute.params.subscribe(({ id }) => {
-      let getUserPosts = this.postService.getUserPosts(id).subscribe((data) => {
-        this.posts = data;
-      });
+    let routerSub = this.activatedRoute.params.subscribe(({ userId }) => {
+      let getUserPosts = this.postService
+        .getUserPosts(userId)
+        .subscribe((data) => {
+          this.posts = data;
+          this.userDetails = this.userService.users.find(
+            (user) => user.id == userId
+          );
+        });
       this.subs.push(getUserPosts);
     });
     this.subs.push(routerSub);

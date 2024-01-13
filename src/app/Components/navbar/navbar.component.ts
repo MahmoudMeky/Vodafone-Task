@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UserService } from './../../Services/user.service';
 import { User } from 'src/app/Interfaces/user';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -9,15 +9,15 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit, OnDestroy {
-  constructor(
-    private userService: UserService,
-  ) {}
-  users: User[] = [];
+  users$: Observable<User[]>;
+  constructor(private userService: UserService) {
+    this.users$ = this.userService.Users$;
+  }
   subs: Subscription[] = [];
 
   ngOnInit(): void {
     let getUsersSub = this.userService.getAll().subscribe((data) => {
-      this.users = data;
+      this.userService.setUsers(data);
     });
     this.subs.push(getUsersSub);
   }

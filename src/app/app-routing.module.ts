@@ -5,7 +5,7 @@ import { UserPageComponent } from './Pages/user-page/user-page.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'user/:id', component: UserPageComponent },
+  { path: 'user/:userId', component: UserPageComponent },
   { path: '**', redirectTo: 'home' },
 ];
 

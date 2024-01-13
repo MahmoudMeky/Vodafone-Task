@@ -1,8 +1,7 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Post } from './../../Interfaces/post';
 import { CommentService } from 'src/app/Services/comment.service';
 import { PostComment } from 'src/app/Interfaces/comment';
-import { UserService } from 'src/app/Services/user.service';
 import { User } from 'src/app/Interfaces/user';
 import { Subscription } from 'rxjs';
 
@@ -11,20 +10,19 @@ import { Subscription } from 'rxjs';
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss'],
 })
-export class PostComponent {
+export class PostComponent implements OnInit {
   @Input('postInfo') postInformation!: Post;
+  @Input('userDetails') userDetails!: User | undefined;
   areCommentsHidden: boolean = true;
 
   comments: PostComment[] | null;
-  userDetails: User | undefined;
   subs: Subscription[] = [];
 
-  constructor(
-    private commentService: CommentService,
-  ) {
+  constructor(private commentService: CommentService) {
     this.comments = null;
   }
 
+  ngOnInit(): void {}
   showComments(): void {
     this.areCommentsHidden = !this.areCommentsHidden;
     // To Be removed After caching API Calls
