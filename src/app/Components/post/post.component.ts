@@ -25,10 +25,7 @@ export class PostComponent implements OnInit {
   ngOnInit(): void {}
   showComments(): void {
     this.areCommentsHidden = !this.areCommentsHidden;
-    // To Be removed After caching API Calls
-    if (this.comments) {
-      return;
-    }
+
     ////////////////////////////////////////////
     let getCommentsSub = this.commentService
       .getPostComments(this.postInformation.id)

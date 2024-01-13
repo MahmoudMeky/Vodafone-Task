@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, retry, throwError } from 'rxjs';
+import { Observable, catchError, finalize, retry, throwError } from 'rxjs';
 import { Post } from '../Interfaces/post';
 import { environment } from 'src/environments/environment';
 

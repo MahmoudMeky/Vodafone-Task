@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +14,7 @@ import { UserService } from './Services/user.service';
 import { CommentService } from './Services/comment.service';
 import { PostService } from './Services/post.service';
 import { LoadingComponent } from './Components/Shared/UI/loading/loading.component';
+import { ApiCacheInterceptor } from './Interceptors/api-cache.interceptor';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,16 @@ import { LoadingComponent } from './Components/Shared/UI/loading/loading.compone
     LoadingComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [UserService, PostService, CommentService],
+  providers: [
+    UserService,
+    PostService,
+    CommentService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiCacheInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
