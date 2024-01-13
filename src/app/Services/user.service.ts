@@ -8,6 +8,8 @@ import { Observable, catchError, retry, throwError } from 'rxjs';
   providedIn: 'root',
 })
 export class UserService {
+  activeUser: User | undefined;
+
   constructor(private httpClient: HttpClient) {}
 
   getAll(): Observable<User[]> {
@@ -18,5 +20,9 @@ export class UserService {
         return throwError(() => new Error(err));
       })
     );
+  }
+
+  setActiveUser(user: User): void {
+    this.activeUser = user;
   }
 }

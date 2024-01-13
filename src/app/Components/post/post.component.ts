@@ -1,7 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Post } from './../../Interfaces/post';
 import { CommentService } from 'src/app/Services/comment.service';
 import { PostComment } from 'src/app/Interfaces/comment';
+import { UserService } from 'src/app/Services/user.service';
+import { User } from 'src/app/Interfaces/user';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-post',
@@ -13,6 +16,9 @@ export class PostComponent {
   areCommentsHidden: boolean = true;
 
   comments: PostComment[] | null;
+  userDetails: User | undefined;
+  subs: Subscription[] = [];
+
   constructor(
     private commentService: CommentService,
   ) {
@@ -26,10 +32,15 @@ export class PostComponent {
       return;
     }
     ////////////////////////////////////////////
-    this.commentService
+    let getCommentsSub = this.commentService
       .getPostComments(this.postInformation.id)
       .subscribe((data) => {
         this.comments = data;
       });
+    this.subs.push(getCommentsSub);
+  }
+
+  ngOnDestroy(): void {
+    this.subs.forEach((sub) => sub.unsubscribe());
   }
 }
