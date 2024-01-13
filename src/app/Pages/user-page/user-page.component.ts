@@ -15,6 +15,7 @@ export class UserPageComponent implements OnInit {
   posts: Post[];
   subs: Subscription[] = [];
   userDetails: User | undefined;
+  isLoading: boolean = true;
   constructor(
     private activatedRoute: ActivatedRoute,
     private postService: PostService,
@@ -25,6 +26,7 @@ export class UserPageComponent implements OnInit {
 
   ngOnInit(): void {
     let routerSub = this.activatedRoute.params.subscribe(({ userId }) => {
+      this.isLoading = true;
       let getUserDetailsSub = this.userService.Users$.subscribe((users) => {
         this.userDetails = users.find((user) => user.id == userId);
       });
@@ -34,6 +36,9 @@ export class UserPageComponent implements OnInit {
         .getUserPosts(userId)
         .subscribe((data) => {
           this.posts = data;
+          setTimeout(() => {
+            this.isLoading = false;
+          }, 200);
         });
       this.subs.push(getUserPostsSub);
     });

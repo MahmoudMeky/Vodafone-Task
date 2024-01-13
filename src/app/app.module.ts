@@ -13,6 +13,7 @@ import { UserPageComponent } from './Pages/user-page/user-page.component';
 import { UserService } from './Services/user.service';
 import { CommentService } from './Services/comment.service';
 import { PostService } from './Services/post.service';
+import { LoadingComponent } from './Components/Shared/UI/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { PostService } from './Services/post.service';
     HomeComponent,
     CommentComponent,
     UserPageComponent,
+    LoadingComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [UserService, PostService, CommentService],
