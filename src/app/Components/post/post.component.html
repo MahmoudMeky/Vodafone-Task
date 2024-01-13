@@ -5,7 +5,7 @@
     class="user-section d-flex gap-3 align-items-center border-bottom pb-2 flex-wrap"
   >
     <div class="avatar border border-1">
-      <img class="img-fluid" src="https://picsum.photos/200/200" />
+      <img class="img-fluid" src="https://picsum.photos/seed/picsum/200" />
     </div>
     <div class="info">
       <h6 class="m-0">{{ userDetails?.username }}</h6>
@@ -21,7 +21,7 @@
   </div>
   <div>
     <img
-      src="https://picsum.photos/1200/600"
+      src="https://picsum.photos/seed/picsum/1200/600"
       class="post-image"
       loading="lazy"
     />
@@ -46,7 +46,7 @@
         role="status"
       ></div>
     </div>
-    
+
     <ng-template #commentsTemplate>
       <app-comment
         *ngFor="let comment of comments"
