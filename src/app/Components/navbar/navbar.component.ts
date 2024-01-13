@@ -9,16 +9,16 @@ import { Subscription, Observable } from 'rxjs';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit, OnDestroy {
-  users$: Observable<User[]>;
+  users: User[];
   constructor(private userService: UserService) {
-    this.users$ = this.userService.Users$;
+    this.users = [];
   }
   subs: Subscription[] = [];
 
   ngOnInit(): void {
-    let getUsersSub = this.userService.getAll().subscribe((data) => {
-      this.userService.setUsers(data);
-    });
+    let getUsersSub = this.userService
+      .getAll()
+      .subscribe((data) => (this.users = data));
     this.subs.push(getUsersSub);
   }
 

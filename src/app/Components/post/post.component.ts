@@ -25,8 +25,6 @@ export class PostComponent implements OnInit {
   ngOnInit(): void {}
   showComments(): void {
     this.areCommentsHidden = !this.areCommentsHidden;
-
-    ////////////////////////////////////////////
     let getCommentsSub = this.commentService
       .getPostComments(this.postInformation.id)
       .subscribe((data) => {

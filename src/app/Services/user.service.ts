@@ -7,6 +7,7 @@ import {
   Observable,
   catchError,
   retry,
+  tap,
   throwError,
 } from 'rxjs';
 
@@ -23,11 +24,10 @@ export class UserService {
       catchError((err) => {
         alert('Error Occured!');
         return throwError(() => new Error(err));
+      }),
+      tap((response) => {
+        this.Users.next(response);
       })
     );
-  }
-
-  setUsers(users: User[]): void {
-    this.Users.next(users);
   }
 }
