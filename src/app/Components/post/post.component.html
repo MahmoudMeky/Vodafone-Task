@@ -14,7 +14,7 @@
   </div>
 
   <div class="">
-    <h6 class="text-primary m-0">{{ postInformation.title }}</h6>
+    <h6 class="text-danger m-0">{{ postInformation.title }}</h6>
     <p class="m-0">
       {{ postInformation.body | slice : 0 : 100 }}
     </p>
@@ -30,7 +30,7 @@
     class="footer d-flex align-items-center flex-wrap justify-content-center justify-content-sm-between gap-0 ga-md-2"
   >
     <!-- <span class="text-muted small">12 Comments</span> -->
-    <button class="btn text-danger text-start px-1" (click)="showComments()">
+    <button class="btn text-muted text-start px-1" (click)="showComments()">
       {{ areCommentsHidden ? "Show Comments" : "Hide Comments" }}
     </button>
   </div>
