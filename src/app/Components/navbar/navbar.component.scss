@@ -2,18 +2,18 @@
   animation: zoomIn 1s;
 }
 
-@keyframes zoomIn {
-  from {
-    transform: scale(0);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
 .zoomIn {
   animation: zoomIn 1s;
-  /* Adjust the duration and other properties as needed */
+}
+.slide-down {
+  animation: slideDown 1s ease-in-out; 
+}
+
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0); 
+  transition: box-shadow 0.3s ease; 
+
+  &:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); 
+  }
 }
